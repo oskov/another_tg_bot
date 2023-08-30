@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mariadb:
+    image: mariadb:10.5.1
+    container_name: mariadb-server-golang-megabot
+    volumes:
+      - ./db_mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "6001:3306"
+    env_file:
+      - .env
